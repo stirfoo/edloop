@@ -1,0 +1,184 @@
+  Operation (For later user document)
+  ==========================================================================
+
+  Upon boot PRESET mode is selected. Bank 0 is selected. Preset 1 is
+  selected. If this is the first time the system is booted, 0x0000 will be
+  read from preset address 0:0 where the first digit is the bank, the second
+  is the offset. This will turn all relays off. The guitar signal will bypass
+  all loops and be muted at the output. CTRL1/2 will be off.
+
+  PRESET Mode
+  -----------
+  Switches OUT1/2 and CTL1/2 are ignored but their hard-wired LEDs will
+  reflect their relay states.
+  
+  Switches LP1-10 will select a preset and toggle the relays and associated
+  preset LED. If the same LP switch is selected successively it is considered
+  a no-op.
+
+  The BANK switch will increment the 7 seg display. If the active preset is
+  not in the bank displayed. The bank display will flash. If one of the
+  LP1-LP10 switches is selected, that preset will be loaded and the bank will
+  stop flashing.
+
+  The MODE switch will cause the unit to enter MANUAL mode.
+  
+  MANUAL Mode
+  -----------
+  All switches are active except BANK. The BANK display will show the bank
+  that was active before entering MANUAL mode.
+
+  * OUT1/2 will toggle the output relays.
+  * CTL1/2 will toggle the control relays.
+  * LP1-LP10 will toggle their associated loop relays.
+
+  The MODE switch will cause the unit to do one of two things depending on the
+  fourth bit of the the mini dip config switch.
+
+  * 0
+    PROGRAM mode is entered.
+  * 1
+    PRESET mode is re-entered. The preset that was active before MANUAL mode
+    was entered is loaded (from a cached value, not ROM). This effectively
+    wipes the state of the loops that were toggled during MANUAL mode.
+
+  PROGRAM Mode
+  ------------
+  Switches OUT1/2 and CTL1/2 are ignored. Preset LEDs 1-10 are cycled. At this
+  point the system is waiting for one of four things to happen.
+  1. The BANK switch can optionally be used to select a bank to write to.
+  2. One of switch LP01-LP10 may be selected. The state of the relays are read
+     and saved in ROM. PRESET mode is then automatically selected with the
+     just programmed preset active.
+  3. The MANUAL switch may be used to re-enter PRESET mode. The previously
+     active bank and preset is reloaded from RAM. This effectively wipes the
+     state of the relays that may have been changed during the previous MANUAL
+     mode.
+
+  Note: The write-protect dip switch is ignored in PROGRAM mode. If its state
+        changes in PROGRAM mode, it will not be honored until the next MANUAL
+	=> PROGRAM transition occurs
+  
+  Switches
+  ===========================================================================
+
+  OUT1 and OUT2
+  -------------
+  Only active in MANUAL mode.
+  Toggle their relays on/off. OUT1 will direct the signal to the OUT1 mono
+  jack. OUT2 will direct the signal to the OUT2 mono jack.
+
+  CTL1 and CTL2
+  -------------
+  Only active in MANUAL mode.
+  CTL1 will short the tip to sleeve of the stereo CTL jack.
+  CTL2 will short the ring to sleeve of the stereo CTL jack.
+
+  LP1 through LP10
+  -----------------
+  Active in any mode.
+  In PRESET mode, each switch will load a preset from cached RAM. In MANUAL
+  mode each switch will toggle its associated loop relay. In PROGRAM mode the
+  selected switch will cause the system to save the state of the relays into
+  ROM.
+
+  MODE
+  ----
+  Change the mode of the unit. One of PRESET, MANUAL, or PROGRAM.
+
+  BANK
+  ----
+  Increment the 7 segment display. After the maximum bank is displayed, reset
+  the display to 0.
+
+  Displays
+  ===========================================================================
+  
+  OUT1 and OUT2 LEDs (red)
+  -----------------
+  Indicate the state of the OUT1/2 switches. Off is muted. These are
+  hard-wired to their relay circuits.
+
+  CTL1 and CTL2 LEDs (red)
+  ------------------------
+  Indicate the state of the CTL1/2 switches. On is active. These are
+  hard-wired to their relay circuits.
+
+  LP1-LP10 Relay Status LEDs (red)
+  --------------------------------
+  Indicate if the associated loop is active. On means the effect is in the
+  signal chain. These are hard-wired to their relay circuits.
+
+  LP1-LP10 Preset Status LEDs (blue)
+  ----------------------------------
+  Indicate the active preset in PRESET and MANUAL mode. In PROGRAM mode all 10
+  LEDs are cycled to inform the user to select one to write to.
+
+  MODE RGB LED
+  ------------
+  Blue for PRESET mode, red for MANUAL mode, and yellow for PROGRAM mode.
+  
+  BANK 7 Segment Display
+  ----------------------
+  Indicate the active bank.
+  If the display is flashing, the displayed preset LED and displayed bank are
+  out of sync. This only occurs in PRESET mode. Select a preset and the
+  display will stop flashing.
+
+  I/O Jacks
+  ==========================================================================
+
+  Guitar In
+  ---------
+  1/4" mono.
+
+  Effects Loops
+  -------------
+  * 1/4" mono send x 10.
+  * 1/4" mono return x 10.
+
+  Amp Control
+  -----------
+  1/4" stereo. Tip controls one function, ring controls another.
+
+  Amp Output
+  ----------
+  * 1/4" mono to amp 1.
+  * 1/4" mono to amp 2.
+
+  Config Switches
+  ===========================================================================
+  The 4 input mini DIP switch is used to configure the unit.
+
+  Switch 2, 3 and 4 set the maximum bank that can be accessed.
+
+                       +---------+
+                       | | | | | |
+                       | 1 2 3 4 |
+                       +---------+
+                           ^ ^ ^
+                           | | |
+                  +--------+ | +--------+
+                  |          |          |
+                  v          v          v
+  +----------+----------+----------+----------+
+  | Max Bank | Switch 2 | Switch 3 | Switch 4 |
+  +----------+----------+----------+----------+
+  |    1     |    OFF   |    OFF   |    OFF   |
+  |    2     |    OFF   |    OFF   |    ON    |
+  |    3     |    OFF   |    ON    |    OFF   |
+  |    4     |    OFF   |    ON    |    ON    |
+  |    5     |    ON    |    OFF   |    OFF   |
+  |    6     |    ON    |    OFF   |    ON    |
+  |    7     |    ON    |    ON    |    OFF   |
+  |    8     |    ON    |    ON    |    ON    |
+  +----------+----------+----------+----------+
+
+  The far left switch is used to prevent overwriting presets. If ON, PROGRAM
+  mode cannot be selected with the MODE switch. The mode will toggle back and
+  forth between PRESET and MANUAL.
+
+  All switches can be modified during operation with one caveat. If the Write
+  Protect switch is enabled while in Program Mode, the switch will not be
+  honored until the next time an attempt to enter Program Mode occurs.
+

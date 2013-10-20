@@ -1,0 +1,48 @@
+* All
+| Type       | Value      | Count | Vendor | Part No | Min | Price | Total |
+|------------+------------+-------+--------+---------+-----+-------+-------|
+| IC         | ATMega328p |     1 | Jameco |         |     |  4.95 |  4.95 |
+| IC         | MCP23017   |     3 | Mouser |         |     |  1.26 |  3.78 |
+| IC         | UL2003     |     2 | Jameco |         |     |   .35 |  0.70 |
+| IC         | 7805       |     1 | Jameco |         |     |   .45 |  0.45 |
+| Relay      | AZ850-9    |    14 |        |         |     |  1.38 | 19.32 |
+| Crystal    | 16Mhz      |     1 | Jameco |         |     |   .59 |  0.59 |
+| Cap        | 22pF       |     2 | Jameco |         |  10 |   .07 |  0.14 |
+| Cap        | .1uF       |     6 | Jameco |         |  10 |   .13 |  0.78 |
+| Cap        | .33uF      |     1 |        |         |     |       |       |
+| Cap        | ???        |       |        |         |     |       |       |
+| Resistor   | 10K 1/4w   |     2 |        |  691307 | 100 |   .04 |  4.00 |
+| Resistor   | 470 1/4w   |    34 |        |  690988 | 100 |   .04 |  4.00 |
+| Mini Dip   | 4 pin      |     1 | Jameco |  696888 |     |  1.09 |  1.09 |
+| M Jack     | 11         |    24 | Jameco |  281738 |     |  1.95 |  46.8 |
+| S Jack     | 12B        |     1 | Jameco |  281746 |     |  2.09 |  2.09 |
+| 9v Jack    |            |     1 | Jameco |  281851 |     |  2.75 |  2.75 |
+| Switch     | PBS24B4    |    16 | Tayda  |  A-1091 |     |  1.99 | 31.84 |
+| LED        | T1 Red     |    14 | Jameco |  333973 |  10 |   .12 |  1.68 |
+| LED        | T1 Blue    |    10 | Jameco |  334465 |     |   .89 |  8.90 |
+| LED        | T1 3/4 RGB |     1 | Jameco | 2128500 |     |  1.95 |  1.95 |
+| LED Mount  | T1         |    24 | Jameco |   95513 |  10 |   .12 |  3.60 |
+| LED Mount  | T1 3/4     |     1 | Jameco |   23077 |  10 |   .15 |  1.50 |
+| Header     | Straight   |    93 | Jameco | 2076797 |  10 |   .08 |  8.00 |
+| Header     | 90 deg     |    13 | Jameco | 2120205 |  10 |   .19 |  3.80 |
+| Stripboard | 3.94 x 6.3 |     1 | Jameco | 2127267 |     | 10.95 | 10.95 |
+| Heatshrink |            |       |        |         |     |       |       |
+| Terminal F |            |    32 |        |         |     |       |       |
+| Housing    | ???        |     1 |        |         |     |       |     0 |
+* Need
+| Type       | Value      | Count | Vendor | Part No | Min | Price | Total |
+|------------+------------+-------+--------+---------+-----+-------+-------|
+| Relay      | AZ850-9    |    14 |        |         |     |  1.38 | 19.32 |
+| IC         | 7805       |     1 | Jameco |         |     |   .45 |  0.45 |
+| Cap        | 22pF       |     2 | Jameco |         |  10 |   .07 |  0.14 |
+| Cap        | .1uF       |     6 | Jameco |         |  10 |   .13 |  0.78 |
+| Mini Dip   | 4 pin      |     1 | Jameco |  696888 |     |  1.09 |  1.09 |
+| LED        | T1 Red     |    14 | Jameco |  333973 |  10 |   .12 |  1.68 |
+| LED        | T1 Blue    |    10 | Jameco |  334465 |     |   .89 |  8.90 |
+| LED        | T1 3/4 RGB |     1 | Jameco | 2128500 |     |  1.95 |  1.95 |
+| LED Mount  | T1         |    24 | Jameco |   95513 |  10 |   .12 |  3.60 |
+| LED Mount  | T1 3/4     |     1 | Jameco |   23077 |  10 |   .15 |  1.50 |
+| Header     | Straight   |    93 | Jameco | 2076797 |  10 |   .08 |  8.00 |
+| Header     | 90 deg     |     8 | Jameco | 2120205 |  10 |   .19 |  1.90 |
+| Stripboard | 3.94 x 6.3 |     1 | Jameco | 2127267 |     | 10.95 | 10.95 |
+
